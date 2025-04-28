@@ -1,0 +1,103 @@
+.button {
+    background-color: var(--color-dark);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button:hover {
+    background-color: #333;
+  }
+  
+  .button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .fullWidth {
+    width: 100%;
+  }
+  
+  .green {
+    background-color: var(--color-success);
+  }
+  
+  .green:hover {
+    background-color: var(--color-success-hover, #007a3d);
+  }
+  
+  .black {
+    background-color: var(--color-dark);
+  }
+  
+  .black:hover {
+    background-color: var(--color-dark-hover, #333);
+  }
+  
+  .processingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+  }
+  
+  .processingText {
+    animation: fadeIn 0.3s ease-in;
+    opacity: 1;
+  }
+  
+  .processing {
+    transition: all 0.3s ease;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }

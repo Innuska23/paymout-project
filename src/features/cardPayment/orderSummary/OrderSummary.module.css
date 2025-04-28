@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  .orderInfo {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    position: relative; 
+  }
+  
+  .infoRow {
+    display: flex;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 133%;
+    margin-bottom: 24px;
+  }
+  
+  .infoRow:last-child {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 171%;
+    padding-bottom: 16px;
+    border-bottom: 1px solid  #e0e2ea;
+  }
+  
+  .productItem {
+    display: flex;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid  #e0e2ea;
+  }
+  
+  .productDetails {
+    flex: 1;
+  }
+  
+  .productTitle {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 143%;
+  }
+  
+  .productMeta {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    color: #797e8b;
+    margin: 0;
+  }
+  
+  .orderTotal {
+    margin-top: auto;
+  }
+  
+  .totalRow {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  .totalLabel {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+  }
+  
+  .orderTotal .totalRow:nth-child(2) .totalLabel {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143%;
+    color: #363a43;
+  }

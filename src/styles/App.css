@@ -1,0 +1,23 @@
+:root {
+  --font-family: "Inter", sans-serif;
+  --second-family: "JetBrains Mono", sans-serif;
+  --third-family: "Sora", sans-serif;
+}
+
+body {
+background-color: var(--color-bg-gray);
+color: var(--accent-color);
+font-family: var(--font-family);
+margin: 0;
+padding: 0;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+}
+
+.app {
+background-color: var(--color-bg-white);
+max-width: 1580px;
+width: 100%;
+}
