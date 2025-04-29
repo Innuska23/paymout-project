@@ -3,27 +3,48 @@
     flex-direction: column;
     max-width: 872px;
     margin: 0 auto;
-  }
-  
-  .header {
-    padding-top:8px;
-    padding-bottom: 8px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
+    padding-top: 8px;
   }
 
-  .languageSelector{
-    display: flex;
-    justify-content: flex-end;
+  .header {
+    padding-bottom: 8px;
+  } 
+  
+  .linkWrapper {
+    text-align: end;
   }
   
+  .langLink {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 171%;
+    text-align: center;
+    color: var(--accent-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    padding: 4px;
+  }
+
+  .langLink:first-child {
+    margin-right: 8px; 
+  }
+
+  .langLink.active {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 171%;
+    text-align: center;
+    color: #b0b4be;
+  }
+
   .backButton {
-font-weight: 600;
-font-size: 18px;
-line-height: 222%;
-text-align: right;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 222%;
+  text-align: right;
     background: none;
     border: none;
     cursor: pointer;
@@ -35,24 +56,34 @@ text-align: right;
     display: flex;
     flex-direction: row;
     gap: 32px;
+    position: relative;
   }
   
+  .wrapperBack{
+    position: absolute;
+    width: 16px;
+    left: -25px;
+    height: 14px;
+    top: 12px;
+  }
   .formSection {
     max-width: 480px;
     flex: 1;
   }
   
   .summarySection {
-    padding: 32px;
+    padding: 32px 32px 40px 32px;
     max-width: 420px;
     background-color: var(--color-info);
     height: 100%;
+    border-radius: 8px;
   }
   
   .title {
     font-weight: 600;
     font-size: 32px;
     line-height: 125%;
+    margin-top: 16px;
   }
   
   .subtitle {
@@ -91,4 +122,10 @@ text-align: right;
   
   .solid {
     font-weight: 600;
+  }
+
+  .checkout{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 222%;
   }

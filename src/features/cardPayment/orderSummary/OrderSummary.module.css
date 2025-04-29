@@ -16,7 +16,6 @@
   }
   
   .infoRow {
-    display: flex;
     font-weight: 600;
     font-size: 18px;
     line-height: 133%;
@@ -61,8 +60,6 @@
   }
   
   .totalRow {
-    display: flex;
-    flex-direction: row-reverse;
     margin-bottom: 8px;
     font-size: 14px;
   }
@@ -72,10 +69,15 @@
     font-size: 16px;
     line-height: 150%;
   }
+
+  .totalRow .totalLabel{
+    display: flex;
+    flex-direction: row-reverse;
+  }
   
   .orderTotal .totalRow:nth-child(2) .totalLabel {
     font-weight: 400;
     font-size: 14px;
     line-height: 143%;
-    color: #363a43;
+    color: var( --accent-color);
   }

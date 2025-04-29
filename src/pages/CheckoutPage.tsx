@@ -1,9 +1,27 @@
-import { useState } from "react";
+import { MouseEvent, ReactNode, useState } from "react";
 
 import { PaymentForm } from "../widgets/paymentForm/PaymentForm";
 import { OrderSummary, PaymentSuccess } from "../features/cardPayment";
+import { BackIcon } from "../shared/ui/icons";
 
 import s from "./CheckoutPage.module.css";
+
+interface Props {
+  lang: string;
+  currentLang: string;
+  onClick: (lang: string, e: MouseEvent<HTMLAnchorElement>) => void;
+  children: ReactNode;
+}
+
+const LangLink = ({ lang, currentLang, onClick, children }: Props) => (
+  <a
+    href="#"
+    className={`${s.langLink} ${currentLang === lang ? s.active : ""}`}
+    onClick={(e) => onClick(lang, e)}
+  >
+    {children}
+  </a>
+);
 
 export const CheckoutPage = () => {
   const [isPaymentComplete, setIsPaymentComplete] = useState(false);
@@ -13,51 +31,59 @@ export const CheckoutPage = () => {
     setIsPaymentComplete(true);
   };
 
-  const toggleLanguage = (lang, e) => {
+  const toggleLanguage = (lang: string, e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setLanguage(lang);
   };
+
   return (
     <div className={s.checkoutContainer}>
       {!isPaymentComplete ? (
         <>
           <div className={s.header}>
-            <div className={s.languageSelector}>
-              <a
-                href="#"
-                className={`${s.langLink} ${language === "en" ? s.active : ""}`}
-                onClick={(e) => toggleLanguage("en", e)}
+            <div className={s.linkWrapper}>
+              <LangLink
+                lang="en"
+                currentLang={language}
+                onClick={toggleLanguage}
               >
                 Eng
-              </a>
-              <a
-                href="#"
-                className={`${s.langLink} ${
-                  language === "ukr" ? s.active : ""
-                }`}
-                onClick={(e) => toggleLanguage("ukr", e)}
+              </LangLink>
+              <LangLink
+                lang="uk"
+                currentLang={language}
+                onClick={toggleLanguage}
               >
                 Укр
-              </a>
+              </LangLink>
             </div>
           </div>
           <div className={s.content}>
+            <div className={s.wrapperBack}>
+              <button className={s.backButton}>
+                <BackIcon />
+              </button>
+            </div>
             <div className={s.formSection}>
-              <button className={s.backButton}>Checkout</button>
+              <p className={s.checkout}> Checkout</p>
               <h1 className={s.title}>5 days free</h1>
-              <p className={s.subtitle}>Then 29.99 USD per 30 days</p>
+              <p className={s.subtitle}>then 299.99 UAH per 14 days</p>
               <PaymentForm onPaymentSuccess={handlePaymentSuccess} />
-              <p className={s.disclaimer}>
+              <div className={s.disclaimer}>
                 You'll have your{" "}
                 <span className={s.disclaimerStrong}>
                   Plan Pro during 1 year.
                 </span>{" "}
-                After this period of time, your plan will be
-                <span className={s.disclaimerStrong}>
-                  automatically renewed
-                </span>{" "}
-                with its original price without any discounts applied.
-              </p>
+                After this period of time,
+                <p>
+                  your plan will be{" "}
+                  <span className={s.disclaimerStrong}>
+                    automatically renewed
+                  </span>{" "}
+                  with its original price
+                </p>
+                <p>without any discounts applied.</p>
+              </div>
             </div>
             <div className={s.summarySection}>
               <OrderSummary />

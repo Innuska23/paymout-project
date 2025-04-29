@@ -34,4 +34,3 @@ export const formatExpiration = (value: string): string => {
 
   return value;
 };
-

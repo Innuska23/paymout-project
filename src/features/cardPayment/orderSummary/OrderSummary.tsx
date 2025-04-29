@@ -28,7 +28,7 @@ export const OrderSummary = () => {
           <span className={s.totalLabel}>5 days free</span>
         </div>
         <div className={s.totalRow}>
-          <span className={s.totalLabel}>then 299.99 USD per 30 days</span>
+          <span className={s.totalLabel}>then 299.99 USD per 14 days</span>
         </div>
       </div>
     </div>

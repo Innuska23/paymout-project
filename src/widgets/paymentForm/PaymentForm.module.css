@@ -46,7 +46,7 @@
     position: relative;
     z-index: 2;
     color: var(--color-dark-light);
-    font-size: 12px;
+    font-size: 14px;
   }
   
   .field:first-child {

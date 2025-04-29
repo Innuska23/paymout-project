@@ -29,3 +29,56 @@
     margin-bottom: 0;
   }
   
+  .inputWithIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .inputWithIcon .input {
+    padding-right: 40px;
+  }
+  
+  .infoButton {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tooltip {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 5px);
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 10;
+    width: 200px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .tooltip::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #333;
+  }
+
+  .iconWrapper{
+    position: absolute;
+    top: 14px;
+    left: 80px;
+  }

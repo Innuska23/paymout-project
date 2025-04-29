@@ -2,45 +2,24 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CardInput } from "../../features/cardPayment/cardInput/CardInput";
 
+import { CardInput } from "../../features/cardPayment/cardInput/CardInput";
 import { simulatePayment } from "../../shared/api/payment";
-import s from "./PaymentForm.module.css";
 import { ExpirationInput } from "../../features/cardPayment/expirationInput/ExpirationInput";
 import { CvvInput } from "../../features/cardPayment/cvvInput/CvvInput";
 import { Button } from "../../shared/ui/button/Button";
+import { ApplePayIcon } from "../../shared/ui/icons";
+import { formSchema } from "../../shared/utils/formSchema";
 
-const formSchema = z.object({
-  cardNumber: z
-    .string()
-    .min(16, "Please enter a valid card number")
-    .max(19, "Please enter a valid card number")
-    .refine(
-      (val) => /^[0-9\s-]+$/.test(val),
-      "Card number can only contain digits"
-    ),
-  expiration: z
-    .string()
-    .min(5, "Please enter a valid expiration date")
-    .max(5, "Please enter a valid expiration date")
-    .refine(
-      (val) => /^(0[1-9]|1[0-2])\/\d{2}$/.test(val),
-      "Format should be MM/YY"
-    ),
-  cvv: z
-    .string()
-    .min(3, "Please enter a valid CVV")
-    .max(4, "Please enter a valid CVV")
-    .refine((val) => /^\d+$/.test(val), "CVV can only contain digits"),
-});
+import s from "./PaymentForm.module.css";
 
 type FormValues = z.infer<typeof formSchema>;
 
-interface PaymentFormProps {
+type Props = {
   onPaymentSuccess: () => void;
-}
+};
 
-export const PaymentForm = ({ onPaymentSuccess }: PaymentFormProps) => {
+export const PaymentForm = ({ onPaymentSuccess }: Props) => {
   const [isProcessing, setIsProcessing] = useState(false);
 
   const {
@@ -78,7 +57,7 @@ export const PaymentForm = ({ onPaymentSuccess }: PaymentFormProps) => {
           disabled={isProcessing}
           color="black"
         >
-          <img src="../../shared/assets/apple.svg" alt="Apple Pay" />
+          <ApplePayIcon />
         </Button>
         <div className={s.divider}>
           <span>or pay with card</span>
@@ -104,7 +83,7 @@ export const PaymentForm = ({ onPaymentSuccess }: PaymentFormProps) => {
           />
         </div>
         <div className={s.field}>
-          <label className={s.label}>CVV</label>
+          <label className={s.label}>CVC</label>
           <CvvInput
             register={register("cvv")}
             error={errors.cvv?.message}

@@ -1,54 +1,30 @@
-# React + TypeScript + Vite
+# Payment Form Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React component for a payment form, which includes card number, expiration date, CVV input, and integrates with a payment API. The component is built using `react-hook-form` for form validation, and `zod` for schema validation.
 
-Currently, two official plugins are available:
+## Features
+- Payment form with card input fields (Card Number, Expiration Date, CVV).
+- Integration with `react-hook-form` and `zod` for form validation.
+- Apple Pay button as a payment method.
+- Tooltip with CVV information.
+- Error handling and form submission.
+- Processing state while payment is being processed.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Dependencies
+- `react`: React library for building the UI.
+- `react-hook-form`: Library for handling form validation.
+- `zod`: Schema validation library for the form.
+- `@hookform/resolvers`: A library for integrating `zod` with `react-hook-form`.
+- `@types/react`: Type definitions for React.
 
-## Expanding the ESLint configuration
+##
+![Payment Page](./src/shared//assets/payment.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Installation
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+To use this component, follow the steps below:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 1. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+```bash
+npm install react-hook-form zod @hookform/resolvers react-icons @types/react
