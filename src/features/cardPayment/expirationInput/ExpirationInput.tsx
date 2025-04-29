@@ -4,17 +4,13 @@ import { formatExpiration } from "../../../shared/lib/formatters";
 
 import s from "../CardInput.module.css";
 
-interface ExpirationInputProps {
+type Props = {
   register: UseFormRegisterReturn;
   error?: string;
   disabled?: boolean;
-}
+};
 
-export const ExpirationInput = ({
-  register,
-  error,
-  disabled,
-}: ExpirationInputProps) => {
+export const ExpirationInput = ({ register, error, disabled }: Props) => {
   const [value, setValue] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

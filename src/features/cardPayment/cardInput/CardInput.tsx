@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 import { formatCardNumber } from "../../../shared/lib/formatters";
+
 import s from "../CardInput.module.css";
 
-interface CardInputProps {
+type Props = {
   register: UseFormRegisterReturn;
   error?: string;
   disabled?: boolean;
-}
+};
 
-export const CardInput = ({ register, error, disabled }: CardInputProps) => {
+export const CardInput = ({ register, error, disabled }: Props) => {
   const [value, setValue] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,7 +1,8 @@
 import { useState, useEffect, ButtonHTMLAttributes, ReactNode } from "react";
+
 import s from "./Button.module.css";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface Type extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   fullWidth?: boolean;
   isLoading?: boolean;
@@ -20,7 +21,7 @@ export const Button = ({
   showSpinner = true,
   className = "",
   ...props
-}: ButtonProps) => {
+}: Type) => {
   const [showProcessingText, setShowProcessingText] = useState(false);
 
   useEffect(() => {

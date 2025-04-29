@@ -1,15 +1,16 @@
 import { useState } from "react";
-import s from "../CardInput.module.css";
 import { InfoIcon } from "../../../shared/ui/icons";
 import { UseFormRegisterReturn } from "react-hook-form";
 
-interface CvvInputProps {
+import s from "../CardInput.module.css";
+
+type Props = {
   register: UseFormRegisterReturn;
   error?: string;
   disabled?: boolean;
-}
+};
 
-export const CvvInput = ({ register, error, disabled }: CvvInputProps) => {
+export const CvvInput = ({ register, error, disabled }: Props) => {
   const [value, setValue] = useState("");
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -35,7 +36,7 @@ export const CvvInput = ({ register, error, disabled }: CvvInputProps) => {
         onChange={handleChange}
         value={value}
         disabled={disabled}
-        className={`${s.input} ${error ? s.error : ""}`}
+        className={`${s.input} ${error ? s.inputError : ""}`}
       />
       <div className={s.iconWrapper}>
         <InfoIcon
@@ -54,7 +55,7 @@ export const CvvInput = ({ register, error, disabled }: CvvInputProps) => {
           </div>
         )}
       </div>
-      {error && <div className={s.errorMessage}>{error}</div>}
+      {error && <div className={s.error}>{error}</div>}
     </div>
   );
 };

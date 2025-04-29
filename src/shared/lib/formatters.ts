@@ -28,7 +28,15 @@ export const formatExpiration = (value: string): string => {
       return month;
     }
 
-    const year = value.substring(2, 4);
+    const currentYearShort = new Date().getFullYear() % 100;
+
+    let year = value.substring(2, 4);
+    const yearNum = parseInt(year, 10);
+
+    if (yearNum < currentYearShort) {
+      year = currentYearShort.toString().padStart(2, "0");
+    }
+
     return `${month}/${year}`;
   }
 
